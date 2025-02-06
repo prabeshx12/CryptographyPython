@@ -69,5 +69,6 @@ Public:<br>
 -> created by using subnet mask such as 255.255.255.0 where this means first 24 bits are masked and only last 8 bits are used for host.<br>
 -> To be clear say, our ip address is of form 192.168.1.0/24 then 192.168.1 part is network address while .0 part is host address.<br>
 -> So, 192.168.1.0 is used for network address, 192.168.0.255 is used for broadcast address and remaining are used for devices on the network.<br>
--> Here, 255.255.255.0 is known as subnet mask.
+-> Here, 255.255.255.0 is known as subnet mask.<br>
+-> Also we can create more subnets as notation is to create two subnets. 192.168.1.0/25 to borrow one bit from the host address.<br>
 </h4>
