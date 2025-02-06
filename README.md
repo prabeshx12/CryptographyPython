@@ -37,3 +37,28 @@ hashed_value = hash(password)<br>
 <h4>
 The password hash here will be different and help in securing your password as it won't be available now in the rainbow table.
 </h4>
+
+<h2> Day 4</h2>
+<h3>IP addresses and their types</h3>
+<h4>
+Private:<br>
+
+-> Only used in local networks such as home/office.<br>
+-> There is range for the private IPs categorized into certain classes.<br>
+1.  Class A: range from 10.0.0.0 to 10.255.255.255<br>
+2.  Class B: range from 172.16.0.0 to 172.31.255.255<br>
+3.  Class C: range from 192.168.0.0 to 192.168.255.255<br>
+
+The above-mentioned are IPv4 IPs. For the IPv6, they will be mentioned as fc00::/7 will start with fc or fd.<br>
+
+<i>To note:<br></i>
+IPv4 uses <i>32</i> bit address.<br>
+IPv6 uses <i>128</i> bit address.<br>
+
+Public:<br>
+
+-> Any IPs not in the range of above will be Public IPs.<br>
+-> This is the IP with which you connect to the world.<br>
+-> for example, Google public DNS server IP is 8.8.8.8.<br>
+
+</h4>
