@@ -72,3 +72,29 @@ Public:<br>
 -> Here, 255.255.255.0 is known as subnet mask.<br>
 -> Also we can create more subnets as notation is to create two subnets. 192.168.1.0/25 to borrow one bit from the host address.<br>
 </h4>
+
+<h2>Day 5</h2>
+<h3>Public Key Crytography(RSA)</h3>
+<h4>
+-> The keys are not same for encryption and decryption i.e. public key for encryption and private key for decryption but these keys are related to each other mathematically.<br>
+</h4>
+<h4>
+How Does This Works?<br>
+1. Key Generation:<br>
+-> we choose two primes say p, q.<br>
+-> we compute <i>n = p x q</i> this n will be used a part of both public and private key.<br>
+-> we then compute the euler's totient function <i>&Phi;(n) = (p - 1) x (q - 1)</i>. This totient function means the total numbers which are coprime to n from 1 to n - 1.<br>
+-> we select e(the public exponent) such that <i> 1 < e < &Phi;(n)</i> and e is coprime to &Phi;(n) i.e. <i> gcd(e, &Phi;(n)) = 1</i>.<br>
+-> we calculate d(the private component) as the modular inverse of e modulo &Phi;(n), so that <i>d x e &equiv; 1 mod &Phi;(n).</i><br>
+
+
+2. Encryption:<br>
+-> sender uses the recipient's public key(e, n) to encrypt the plaintext M into ciphertext C using the formula: <i>C = M<sup>e</sup> mod n.</i><br>
+
+
+3. Decryption:<br>
+-> receiver uses the private key(d, n) to decrypt the Ciphertext C into Message M using the formular: <i> M = C<sup>d</sup> mod n</i>.<br>
+
+
+Here, larger the primes p and q, harder it is to break the encryption.
+</h4>
