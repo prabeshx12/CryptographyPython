@@ -13,9 +13,10 @@
 <h3>Hashing Algorithm</h3>
 <h4>
 Properties:<br>
+-> pre-image resistance. <br>
 -> should be fast but not so fast.<br>
-->shouldn't have hash collisions.<br>
-->has kind of like avalanche effect. i.e. changing in one bit changes the whole hash value. 
+-> shouldn't have hash collisions.<br>
+-> avalanche effect. i.e. change in one bit changes the whole hash value. 
 
 Types of Hashing Algorithms:<br>
 -> SHA(Secure Hash Algorithms) -> various versions are there such as SHA-1, SHA-2, etc.<br> 
