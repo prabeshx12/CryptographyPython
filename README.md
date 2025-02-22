@@ -83,10 +83,10 @@ How Does This Works?<br><br>
 
 1. Key Generation:<br>
 -> we choose two primes say p, q.<br>
--> we compute <i>n = p x q</i> this n will be used a part of both public and private key.<br>
--> we then compute the euler's totient function <i>&Phi;(n) = (p - 1) x (q - 1)</i>. This totient function means the total numbers which are coprime to n from 1 to n - 1.<br>
+-> we compute <i>n = p &times; q</i> this n will be used a part of both public and private key.<br>
+-> we then compute the euler's totient function <i>&Phi;(n) = (p - 1) &times; (q - 1)</i>. This totient function means the total numbers which are coprime to n from 1 to n - 1.<br>
 -> we select e(the public exponent) such that <i> 1 < e < &Phi;(n)</i> and e is coprime to &Phi;(n) i.e. <i> gcd(e, &Phi;(n)) = 1</i>.<br>
--> we calculate d(the private component) as the modular inverse of e modulo &Phi;(n), so that <i>d x e &equiv; 1 mod &Phi;(n).</i><br>
+-> we calculate d(the private component) as the modular inverse of e modulo &Phi;(n), so that <i>d &times; e &equiv; 1 mod &Phi;(n).</i><br>
 <br>
 
 2. Encryption:<br>
@@ -98,4 +98,67 @@ How Does This Works?<br><br>
 
 
 Here, larger the primes p and q, harder it is to break the encryption.
+</h4>
+
+<h2>Day 6</h2>
+<h3>Advanced Encryption Standard (AES)</h3>
+<h4>
+-> Symmetric Encryption Standard which encrypts data in fixed-size blocks(128 bits)<br>
+-> Supports key size of 128, 192, 256 bits.<br>
+-> highly secure and used by U.S. NIST.<br>
+-> performs series of transformation over multiple rounds depending on the key size:<br>
+    . AES-128: 10 rounds<br>
+    . AES-192: 12 rounds<br>
+    . AES-256: 14 rounds<br>
+</h4>
+
+<h3>Data Encryption Standard (DES)</h3>
+<h4>It is a block cipher that operates on 64-bits blocks using a 56-bit key. It is a symmetric-key algorithm.</h4>
+<h4>
+->  performs 16 round of operations.<br>
+->  unsecure and is prone to brute force attack due to 56-bit key.<br>
+</h4>
+
+<h3>Digital Signature Algorithm (DSA)</h3>
+<h4>It is an asymmetric algorithm for digital signature. It is the part of Digital Signature Algorithm standard in the Digital Signature Standard(DDS).</h4>
+<h4>
+->  private key for signing and public key for verification.<br>
+->  typically uses 1024 bits but 2048 and 3072 bits are preferred for better security.<br>
+->  generates Digital Signature for a message using the private key.
+</h4>
+
+<h4>DSA Signature Generation</h4>
+<h4>
+1. Message Hashing: It is done using any hashing algorithms such as SHA-1 or SHA-256. This hash value is denoted by <i>H(m)</i>
+
+
+2. Signature Generation: <br>
+    Select a random integer <i>k</i> (form a range([1, q - 1] where q is small prime divisor of p - 1.) determined by the parameters of DSA).<br><br>
+
+    Calculate <i>r</i> and <i>s</i> as:<br>
+    <i> r = (g<sup>k</sup> mod p) mod q</i> (where g, p, q are the DSA parameters).<br>
+    <i> s = k<sup>-1</sup>(H(m) + xr) mod q </i>(where x is the private key and k<sup>-1</sup> is the modular inverse of k and calculated using the Extended Euclidean Algorithm).<br>
+    
+
+3. The pair (r, s) is the signature pair. Note that both r and s must be within the range of [1, q - 1]. If not, it is considered invalid.
+</h4>
+<h4> DSA Signature Verification</h4>
+<h4>
+
+
+1. Compute w.<br>
+   <i>w = s<sup>-1</sup> mod q.</i>
+
+
+2. Computer u1 and u2.<br>
+<i>u1 = (H(m) &times; w) mod q</i><br>
+<i>u2 = (r &times; w) mod q</i>
+
+
+3. Compute v using public key y and domain parameters p, q, g and u1 and u2.<br>
+<i>v = (g<sup>u1</sup> &times; y<sup>u2</sup>) mod p mod q.</i>
+
+
+4. Verify:<br>
+ if <i>v = r</i>, valid else invalid.
 </h4>
