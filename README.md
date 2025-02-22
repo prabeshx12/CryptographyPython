@@ -7,7 +7,7 @@
 
 <h3>Morse Code</h3>
 <h4>
--> WIll change numbers letters into dots(.) and dashes(_).</h4>
+-> Will change numbers letters into dots(.) and dashes(_).</h4>
 
 <h2>Day 2</h2>
 <h3>Hashing Algorithm</h3>
@@ -16,7 +16,7 @@ Properties:<br>
 -> pre-image resistance. <br>
 -> should be fast but not so fast.<br>
 -> shouldn't have hash collisions.<br>
--> avalanche effect. i.e. change in one bit changes the whole hash value. 
+-> avalanche effect. i.e. change in one bit changes the whole hash value.<br>
 
 Types of Hashing Algorithms:<br>
 -> SHA(Secure Hash Algorithms) -> various versions are there such as SHA-1, SHA-2, etc.<br> 
@@ -95,7 +95,7 @@ How Does This Works?<br><br>
 <br>
 
 3. Decryption:<br>
--> receiver uses the private key(d, n) to decrypt the Ciphertext C into Message M using the formular: <i> M = C<sup>d</sup> mod n</i>.<br>
+-> receiver uses the private key(d, n) to decrypt the Ciphertext C into Message M using the formula: <i> M = C<sup>d</sup> mod n</i>.<br>
 
 
 Here, larger the primes p and q, harder it is to break the encryption.
@@ -130,12 +130,10 @@ Here, larger the primes p and q, harder it is to break the encryption.
 
 <h4>DSA Signature Generation</h4>
 <h4>
-1. Message Hashing: It is done using any hashing algorithms such as SHA-1 or SHA-256. This hash value is denoted by <i>H(m)</i>
+1. Message Hashing: It is done using any hashing algorithms such as SHA-1 or SHA-256. This hash value is denoted by <i>H(m).</i>
 
 
-2. Signature Generation: <br>
-    Select a random integer <i>k</i> (form a range([1, q - 1] where q is small prime divisor of p - 1.) determined by the parameters of DSA).<br><br>
-
+2. Signature Generation: Select a random integer <i>k</i> (from a range([1, q - 1] where q is small prime divisor of p - 1.) determined by the parameters of DSA).<br><br>
     Calculate <i>r</i> and <i>s</i> as:<br>
     <i> r = (g<sup>k</sup> mod p) mod q</i> (where g, p, q are the DSA parameters).<br>
     <i> s = k<sup>-1</sup>(H(m) + xr) mod q </i>(where x is the private key and k<sup>-1</sup> is the modular inverse of k and calculated using the Extended Euclidean Algorithm).<br>
