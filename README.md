@@ -130,7 +130,7 @@ Here, larger the primes p and q, harder it is to break the encryption.
 
 <h4>DSA Signature Generation</h4>
 <h4>
-1. Message Hashing: It is done using any hashing algorithms such as SHA-1 or SHA-256. This hash value is denoted by <i>H(m).</i>
+1. Message Hashing: It is done using any hashing algorithms such as SHA-1 or SHA-256. This hash value is denoted by <i>H(m)</i>.
 
 
 2. Signature Generation: Select a random integer <i>k</i> (from a range([1, q - 1] where q is small prime divisor of p - 1.) determined by the parameters of DSA).<br><br>
