@@ -161,3 +161,32 @@ Here, larger the primes p and q, harder it is to break the encryption.
 4. Verify:<br>
  if <i>v = r</i>, valid else invalid.
 </h4>
+
+
+<h2>Day 7</h2>
+<h3>Cross Site Scripting (XSS)</h3>
+<h4>It is a vulnerability that allows an attacker to inject malicious scripts (basically Javascript) into the content viewed by the users.
+The injected script can execute in the context of the victim’s browser, allowing the attacker to steal information (such as cookies or session tokens), manipulate content, or perform other malicious actions.
+</h4>
+
+<h4>Types of XSS</h4>
+<h4>
+1.  Stored XSS: It is stored permanently stored on Target's server(i.e. Database)
+
+
+2.  Reflected XSS: The malicious script is reflected off a web server, typically through URL parameters, and executes when the victim clicks on a crafted URL.
+
+
+3.  DOM-based XSS: The vulnerability exists in the client-side code (JavaScript), where the page itself executes the malicious script without proper sanitization.
+</h4>
+
+
+<h3>Cross Site Forgery Request (CSFR)</h3>
+<h4>It is an attack where an attacker tricks a victim into performing an unwanted action on a web application in which the victim is authenticated. The attacker typically sends a request from the victim's browser to a website where the victim is logged in, exploiting the trust that the site has in the user's browser.</h4>
+
+<h4>How CSRF Works:
+
+->  The attacker sends a link or embeds malicious code (usually in an email, on a website, or in a forum post).<br>
+
+->  If the victim is logged into a vulnerable web application, clicking the link or executing the code sends an unintended request to the server, potentially performing actions like transferring funds, changing account settings, or making posts.
+</h4>
