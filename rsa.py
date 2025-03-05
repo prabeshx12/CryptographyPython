@@ -39,4 +39,5 @@ def rsa_algo(message=1):  # here message is the message to be encrypted.
 
 
 encrypted_code, decrypted_code = rsa_algo(message=4)
+print(f"The message to be encrypted is {4}")
 print(f"The encrypted and decrypted value is {encrypted_code} and {decrypted_code} respectively.")
