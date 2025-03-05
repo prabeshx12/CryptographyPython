@@ -185,7 +185,7 @@ The injected script can execute in the context of the victim’s browser, allowi
 <h3>Cross Site Forgery Request (CSFR)</h3>
 <h4>It is an attack where an attacker tricks a victim into performing an unwanted action on a web application in which the victim is authenticated. The attacker typically sends a request from the victim's browser to a website where the victim is logged in, exploiting the trust that the site has in the user's browser.</h4>
 
-<h4>How CSRF Works:<br>
+<h4>How CSRF Works:
 
 ->  The attacker sends a link or embeds malicious code (usually in an email, on a website, or in a forum post).<br>
 
