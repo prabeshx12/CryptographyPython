@@ -18,7 +18,7 @@ Properties:<br>
 -> shouldn't have hash collisions.<br>
 -> avalanche effect. i.e. change in one bit changes the whole hash value.<br>
 
-Types of Hashing Algorithms:<br>
+<br>Types of Hashing Algorithms:<br>
 -> SHA(Secure Hash Algorithms) -> various versions are there such as SHA-1, SHA-2, etc.<br> 
 -> MD5(Message Digest 5) -> broken</h4>
 <h4>SHA-1:<br>
